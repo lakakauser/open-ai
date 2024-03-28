@@ -42,7 +42,7 @@ async def generate_completion_response(
                     reply = js['choices'][0]['message']['content']
                     return CompletionData(status=CompletionResult.OK, reply_text=reply, status_text=None)
                 else:
-                    return CompletionData(status=CompletionResult.Error, reply_text=None, status_text=str(r))
+                    return CompletionData(status=CompletionResult.ERROR, reply_text=None, status_text=str(r))
     except Exception as e:
         logger.exception(e)
         return CompletionData(
